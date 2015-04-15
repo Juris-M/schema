@@ -13,7 +13,7 @@ dc:description [
 ]
 
 include "csl-jurisdictions.rnc"
-include "csl.rnc" {
+include "csl-repository.rnc" {
   version = attribute version { "1.1mlz1" }
   
   ## Add "skip-words" attribute
@@ -435,7 +435,50 @@ include "csl.rnc" {
     | "version"
     | "volume-title"
     | "year-suffix"
+
+  independent-style.style.info =
+    element cs:info {
+      info.title,
+      info.title-short?,
+      info.id,
+      independent-style.info.link.self,
+      independent-style.info.link.template*,
+      independent-style.info.link.documentation+,
+      info.author*,
+      info.contributor*,
+      info.category.citation-format,
+      info.category.field*,
+      info.issn?,
+      info.eissn?,
+      info.issnl?,
+      info.summary?,
+      info.published?,
+      info.updated,
+      info.rights,
+      info.law-module?
+    }
+
+
 }
+
+info.law-module =
+    element cs:law-module {
+      attribute types {
+      list {
+        ( "bill"
+          | "legal_case"
+          | "legislation"
+          | "patent"
+          | "treaty"
+          | "gazette" 
+          | "regulation" 
+          | "hearing"
+        )+
+      }
+   }
+}
+
+
 
 ## Add support for locale-specific layouts
 citation.layout-locale =
@@ -617,3 +660,4 @@ div {
   cs-conditions = element cs:conditions { match, cs-condition+ }
   cs-condition = element cs:condition { match?, condition+ }
 }
+
