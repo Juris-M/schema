@@ -331,6 +331,11 @@ include "csl-repository.rnc" {
         list { terms.locator+ }
       }
     | 
+      ## Tests whether the number label matches the given label
+      attribute number {
+        list { terms.locator+ }
+      }
+    | 
       ## Tests for the number of subjurisdictions
       attribute subjurisdictions { xsd:integer }
     |
