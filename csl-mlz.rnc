@@ -332,8 +332,16 @@ include "csl-repository.rnc" {
       }
     | 
       ## Tests whether the number label matches the given label
+      ## "number" is an anomaly
+      ## In the Juris-M in-field abbrevs for extended locator labels,
+      ## "no." stands for "issue".
+      ## However, when testing for @number label, the processor
+      ## assigns the label "number" as label to the number field
+      ## if it has no value. So:
+      ##   no. 22 = issue 22
+      ##   22     = number 22
       attribute number {
-        list { terms.locator+ }
+        list { terms.locator+ | "number" }
       }
     | 
       ## Tests for the number of subjurisdictions
