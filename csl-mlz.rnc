@@ -416,7 +416,7 @@ include "csl-repository.rnc" {
     | "jurisdiction"
     | "keyword"
     | "locator"
-    | "locator-revision"
+    | "locator-extra"
     | "medium"
     | "note"
     | "original-publisher"
@@ -624,7 +624,7 @@ div {
   terms |= "unpublished"
   
   ## Add locator terms
-  terms.locator.testable |= "Chapter" | "Section" | "article" | "rule" | "title"
+  terms.locator.testable |= "Chapter" | "Section" | "article" | "rule" | "title" | "number"
   
   ## Add non-locator terms accompanying number variables
   terms.non-locator-number-variables |=
