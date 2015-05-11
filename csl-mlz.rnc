@@ -662,6 +662,9 @@ div {
   
   ## Add number variables
   variables.numbers |= "call-number" | "page" | "page-first" | "supplement" | "publication-number"
+
+  ## Add string variables
+  variables.strings |= "gazette-flag"
 }
 
 ## For complex conditions
