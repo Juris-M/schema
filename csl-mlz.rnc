@@ -655,7 +655,7 @@ div {
 div {
   
   ## Add name variables
-  variables.names |= "director" | "authority" | "commenter" | "dummy"
+  variables.names |= "authority" | "director" | "commenter" | "committee" | "dummy"
   
   ## Add date variables
   variables.dates |= "available-date" | "locator-date" | "publication-date"
