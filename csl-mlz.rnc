@@ -471,7 +471,6 @@ include "csl-repository.rnc" {
       info.law-module?
     }
 
-
 }
 
 info.law-module =
@@ -664,7 +663,7 @@ div {
   variables.numbers |= "call-number" | "page" | "page-first" | "supplement" | "publication-number"
 
   ## Add string variables
-  variables.strings |= "gazette-flag"
+  variables.strings |= "gazette-flag" | "document-name"
 }
 
 ## For complex conditions
