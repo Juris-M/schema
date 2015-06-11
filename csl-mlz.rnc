@@ -360,11 +360,15 @@ include "csl-repository.rnc" {
       ## argument represents a space character.
       attribute genre { 
         "email" 
-	| "instant-message" 
-	| "podcast" 
-	| "radio-broadcast" 
-	| "television-broadcast"
+	    | "instant-message" 
+	    | "podcast" 
+	    | "radio-broadcast" 
+	    | "television-broadcast"
       }
+    |
+      ## True if unrendered components of the authority
+      ## variable remain
+      attribute authority-residue { "true" | "false" }
 
   affixes =
     [ a:defaultValue = "" ]
@@ -481,9 +485,8 @@ info.law-module =
         ( "bill"
           | "legal_case"
           | "legislation"
-          | "patent"
-          | "treaty"
-          | "gazette" 
+          | "bill"
+          | "report" 
           | "regulation" 
           | "hearing"
         )+
