@@ -667,7 +667,7 @@ div {
   variables.numbers |= "call-number" | "page" | "page-first" | "supplement" | "publication-number"
 
   ## Add string variables
-  variables.strings |= "gazette-flag" | "document-name"
+  variables.strings |= "gazette-flag" | "document-name" | "language-name" | "language-name-original"
 }
 
 ## For complex conditions
