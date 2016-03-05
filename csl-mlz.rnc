@@ -42,7 +42,10 @@ include "csl-repository.rnc" {
       attribute name-as-reverse-order { list { xsd:language+ } }?,
 
       ## Resets 
-      attribute name-never-short { list { xsd:language+ } }?
+      attribute name-never-short { list { xsd:language+ } }?,
+
+      ## Resets
+      attribute jurisdiction-preference { text }?
     }
   
   ## Replace affixes by affixes-date on cs:date-part
