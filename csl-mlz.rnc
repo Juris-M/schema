@@ -604,7 +604,12 @@ institution-attributes =
   ## to include
   attribute institution-parts {
     "long" | "short" | "long-short" | "short-long"
-  }?
+  }?,
+
+  ## Suppress output if number of names is at or above a min,
+  ## or at or below a max value
+  attribute suppress-min { xsd:integer }?,
+  attribute suppress-max { xsd:integer }?
 
 ## Abbreviation setting of ranges in year dates
 ## (by default no reformatting is applied to the input data).
