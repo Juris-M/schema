@@ -12,6 +12,8 @@ dc:description [
   "Extends the official CSL schema for use with Multilingual Zotero."
 ]
 
+
+
 include "csl-jurisdictions.rnc"
 include "csl-repository.rnc" {
   version = attribute version { "1.1mlz1" }
@@ -219,6 +221,110 @@ include "csl-repository.rnc" {
     attribute label-form { term.form }?,
     attribute gender { "masculine" | "feminine" }?
   
+  name.attributes =
+
+    ## Use to separate the second-to-last and last name of a name list by
+    ## the "and" term or ampersand.
+    attribute and {
+      
+      ## Use the "and" term (e.g., "Doe, Johnson and Smith").
+      "text"
+      | 
+        ## Use the "ampersand" (e.g., "Doe, Johnson & Smith").
+        "symbol"
+    }?,
+    
+    ## Specify when the name delimiter is used between a truncated name list
+    ## and the "et-al" (or "and others") term in case of et-al abbreviation
+    ## (e.g., "Smith, Doe et al." or "Smith, Doe, et al.").
+    [ a:defaultValue = "contextual" ]
+    attribute delimiter-precedes-et-al {
+      
+      ## The name delimiter is only used when the truncated name list
+      ## consists of two or more names.
+      "contextual"
+      | 
+        ## The name delimiter is always used.
+        "always"
+      | 
+        ## The name delimiter is never used.
+        "never"
+      | 
+        ## The name delimiter is only used if the preceding name is inverted as
+        ## a result of the "name-as-sort-order" attribute.
+        "after-inverted-name"
+    }?,
+    
+    ## Specify when the name delimiter is used between the second-to-last
+    ## and last name of a non-truncated name list. Only has an effect when
+    ## the "and" term or ampersand is used (e.g., "Doe and Smith" or "Doe,
+    ## and Smith").
+    [ a:defaultValue = "contextual" ]
+    attribute delimiter-precedes-last {
+      
+      ## The name delimiter is only used when the name list consists of
+      ## three or more names.
+      "contextual"
+      | 
+        ## The name delimiter is always used.
+        "always"
+      | 
+        ## The name delimiter is never used.
+        "never"
+      | 
+        ## The name delimiter is only used if the preceding name is inverted as
+        ## a result of the "name-as-sort-order" attribute.
+        "after-inverted-name"
+    }?,
+    
+    ## Set the minimum number of names needed in a name variable to activate
+    ## et-al abbreviation.
+    attribute et-al-min { xsd:integer }?,
+    
+    ## Set the number of names to render when et-al abbreviation is active.
+    attribute et-al-use-first { xsd:integer }?,
+    
+    ## As "et-al-min", but only affecting subsequent citations to an item.
+    attribute et-al-subsequent-min { xsd:integer }?,
+    
+    ## As "et-al-use-first", but only affecting subsequent citations to an
+    ## item.
+    attribute et-al-subsequent-use-first { xsd:integer }?,
+    
+    ## If set to "true", the "et-al" (or "and others") term is replaced by
+    ## an ellipsis followed by the last name of the name variable.
+    [ a:defaultValue = "false" ]
+    attribute et-al-use-last { xsd:boolean }?,
+    
+    ## If set to "false", names are not initialized and "initialize-with"
+    ## only affects initials already present in the input data.
+    [ a:defaultValue = "true" ] attribute initialize { xsd:boolean }?,
+    
+    ## Activate initializing of given names. The attribute value is appended
+    ## to each initial (e.g., with ". ", "Orson Welles" becomes "O. Welles").
+    attribute initialize-with { text }?,
+    
+    ## Specify whether (and which) names should be rendered in their sort
+    ## order (e.g., "Doe, John" instead of "John Doe").
+    attribute name-as-sort-order {
+      
+      ## Render the first name of each name variable in sort order.
+      "first"
+      | 
+        ## Render all names in sort order.
+        "all"
+    }?,
+    
+    ## Sets the delimiter for name-parts that have switched positions as a
+    ## result of "name-as-sort-order" (e.g., ", " in "Doe, John").
+    [ a:defaultValue = ", " ] attribute sort-separator { text }?,
+  
+  
+    ## Suppress output if number of names is at or above a min,
+    ## or at or below a max value
+    attribute suppress-min { xsd:integer }?,
+    attribute suppress-max { xsd:integer }?
+
   ## Drop affixes
   label.attributes-shared =
     
@@ -527,14 +633,6 @@ layout.locale =
   attribute locale {
     list { xsd:language+ }
   }
-
-## Add "suppress-min", "suppress-max" attributes
-name.attributes |=
-  
-  ## Suppress output if number of names is at or above a min,
-  ## or at or below a max value
-  attribute suppress-min { xsd:integer }?,
-  attribute suppress-max { xsd:integer }?
 
 ## Similar to label, but inherits variable from <names> tag
 names.label-before =
