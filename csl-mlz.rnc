@@ -339,7 +339,7 @@ include "csl-repository.rnc" {
   label.attributes =
     attribute variable { variables.numbers | "locator" | "page" },
     [ a:defaultValue = "long" ]
-    attribute form { "long" | "short" | "symbol" }?,
+    attribute form { "long" | "short" | "symbol" | "embed" }?,
     affixes
   
   ## Add "is-parallel", "oops",  "quotes", "subgroup-delimiter",
@@ -584,7 +584,6 @@ include "csl-repository.rnc" {
       info.rights,
       info.law-module?
     }
-
 }
 
 info.law-module =
@@ -604,6 +603,7 @@ info.law-module =
 }
 
 
+term.form |= "embed"
 
 ## Add support for locale-specific layouts
 citation.layout-locale =
