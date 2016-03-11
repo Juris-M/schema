@@ -353,6 +353,12 @@ include "csl-repository.rnc" {
     attribute oops { text }?,
     attribute is-parallel {
       list { (xsd:boolean | "master" | "servant")+ }
+    }?,
+    attribute reject {
+      "label-empty-or-alpha"
+    }?,
+    attribute require {
+      "label-empty-or-alpha"
     }?
   
   style.options =
