@@ -355,10 +355,10 @@ include "csl-repository.rnc" {
       list { (xsd:boolean | "master" | "servant")+ }
     }?,
     attribute reject {
-      "label-empty-or-alpha" | "label-empty"
+      "comma-safe"
     }?,
     attribute require {
-      "label-empty-or-alpha" | "label-empty"
+      "comma-safe"
     }?
   
   style.options =
