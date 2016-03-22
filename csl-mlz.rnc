@@ -190,7 +190,7 @@ include "csl-repository.rnc" {
     (
      ## Select a macro.
      attribute macro { xsd:NMTOKEN },
-     attribute label-form { term.form }?
+     attribute label-form { term.form }?)
     | (
        ## Select a term.
        attribute term { terms },
