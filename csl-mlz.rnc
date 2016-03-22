@@ -358,7 +358,7 @@ include "csl-repository.rnc" {
       "comma-safe"
     }?,
     attribute require {
-      "comma-safe"
+      "comma-safe" | "empty-label"
     }?
   
   style.options =
