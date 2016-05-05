@@ -341,7 +341,7 @@ include "csl-repository.rnc" {
     attribute form { "long" | "short" | "symbol" | "static" }?,
     affixes
   
-  ## Add "is-parallel", "oops",  "quotes", "subgroup-delimiter",
+  ## Add "is-parallel", "quotes", "subgroup-delimiter",
   ## "subgroup-delimiter-precedes-last", attribute on cs:group
   group.attributes =
     quotes,
@@ -349,7 +349,6 @@ include "csl-repository.rnc" {
     attribute subgroup-delimiter-precedes-last {
       "contextual" | "always" | "never"
     }?,
-    attribute oops { text }?,
     attribute is-parallel {
       list { (xsd:boolean | "master" | "servant")+ }
     }?,
