@@ -56,6 +56,34 @@ include "csl-repository.rnc" {
       affixes-date, font-formatting, text-case, (day | month | year)
     }
 
+## Override definition of date to add use-default-locale
+rendering-element.date =
+    element cs:date {
+      attribute variable { variables.dates },
+      ((
+        ## Limit the date parts rendered.
+        [ a:defaultValue = "year-month-day" ]
+        attribute date-parts {
+          
+          ## Year, month and day
+          "year-month-day"
+          | 
+            ## Year and month
+            "year-month"
+          | 
+            ## Year only
+            "year"
+        }?,
+        date.form,
+        use-default-locale,
+        rendering-element.date.date-part.localized*)
+       | (rendering-element.date.date-part.non-localized+, delimiter)),
+      affixes,
+      display,
+      font-formatting,
+      text-case
+    }
+
   ## Terms (adding email, instant-message, television-broadcast, radio-broadcast, and podcast)
   terms =
     terms.gender-assignable
@@ -174,6 +202,8 @@ include "csl-repository.rnc" {
        names.label-after?),
       names.substitute?
     }
+
+
   
   ## Replace affixes by affixes-date on cs:date-part
   rendering-element.date.date-part.non-localized =
@@ -197,7 +227,10 @@ include "csl-repository.rnc" {
        [ a:defaultValue = "long" ] attribute form { term.form }?,
        
        ## Specify term plurality: singular ("false") or plural ("true").
-       [ a:defaultValue = "false" ] attribute plural { xsd:boolean }?)
+       [ a:defaultValue = "false" ] attribute plural { xsd:boolean }?,
+
+       ## Force use of the style default locale for the term
+       use-default-locale)
     | 
       ## Specify verbatim text.
       attribute value { text }
@@ -339,6 +372,7 @@ include "csl-repository.rnc" {
     attribute variable { variables.numbers | "locator" | "page" },
     [ a:defaultValue = "long" ]
     attribute form { "long" | "short" | "symbol" | "static" }?,
+    use-default-locale,
     affixes
   
   ## Add "is-parallel", "quotes", "subgroup-delimiter",
@@ -589,6 +623,9 @@ include "csl-repository.rnc" {
       info.law-module?
     }
 }
+
+## Use default locale (for cs:text w/term, cs:label, and cs:date-part)
+use-default-locale = ( [ a:defaultValue = "false" ] attribute default-locale { xsd:boolean }? )
 
 info.law-module =
     element cs:law-module {
