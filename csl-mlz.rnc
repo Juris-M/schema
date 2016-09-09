@@ -73,6 +73,9 @@ rendering-element.date =
           | 
             ## Year only
             "year"
+          |
+            # Month and day only
+            "month-day"
         }?,
         date.form,
         use-default-locale,
