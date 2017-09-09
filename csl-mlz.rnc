@@ -567,7 +567,6 @@ rendering-element.date =
     | "collection-title"
     | "container-title"
     | "container-title-short"
-    | "country"
     | "dimensions"
     | "DOI"
     | "event"
