@@ -240,9 +240,15 @@ rendering-element.date =
     | (
        ## Select a variable.
        attribute variable { variables.strings },
+       ## Form of the variable
        [ a:defaultValue = "long" ] attribute form { "short" | "long" }?,
-       attribute leading-noise-words { "drop" | "demote" }?)
-  
+       ## What to do with leading noise words
+       attribute leading-noise-words { "drop" | "demote" }?,
+       ## Chop jurisdiction code underlying rendered human-readable
+       ## form to this length (meaningful only with jurisdiction
+       ## variable)
+       attribute jurisdiction-depth { xsd:integer }?)
+       
   ## Allow "locator" variable on, add "label-form" attribute to cs:number
   number.attributes =
     attribute variable { variables.numbers | "locator" },
