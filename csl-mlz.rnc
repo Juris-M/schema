@@ -396,10 +396,10 @@ rendering-element.date =
       list { (xsd:boolean | "master" | "servant")+ }
     }?,
     attribute reject {
-      "comma-safe" | "empty-label"
+      "comma-safe" | "empty-label" | "empty-label-no-decor"
     }?,
     attribute require {
-      "comma-safe" | "empty-label"
+      "comma-safe" | "empty-label" | "empty-label-no-decor"
     }?
   
   style.options =
