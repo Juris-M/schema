@@ -223,7 +223,8 @@ rendering-element.date =
     (
      ## Select a macro.
      attribute macro { xsd:NMTOKEN },
-     attribute label-form { term.form }?)
+     attribute label-form { term.form }?,
+     [ a:defaultValue = "false" ] attribute label-capitalize-if-first { xsd:boolean }?),
     | (
        ## Select a term.
        attribute term { terms },
@@ -260,6 +261,7 @@ rendering-element.date =
       "numeric" | "ordinal" | "long-ordinal" | "roman"
     }?,
     attribute label-form { term.form }?,
+    [ a:defaultValue = "false" ] attribute label-capitalize-if-first { xsd:boolean }?,
     attribute gender { "masculine" | "feminine" }?
   
   name.attributes =
@@ -381,6 +383,8 @@ rendering-element.date =
     attribute variable { variables.numbers | "locator" | "page" },
     [ a:defaultValue = "long" ]
     attribute form { "long" | "short" | "symbol" | "static" }?,
+    [ a:defaultValue = "false" ]
+    attribute capitalize-if-first { xsd:boolean }?,
     use-default-locale,
     affixes
   
