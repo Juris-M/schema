@@ -841,3 +841,31 @@ div {
   cs-condition = element cs:condition { match?, condition+ }
 }
 
+## For translations and reprints
+div {
+  rendering-element |= alternative
+}
+
+div {
+  alternative =
+    
+    ## Use to enclose a set of rendering elements. Elements within the alternative
+    ## scope will render in the destination locale of a translation or reprint.
+    ## See also alternative-text.
+    element cs:group {
+      affixes,
+      alternative-text,
+      rendering-element+
+    }
+}
+
+div {
+  alternative-text =
+
+  ## Reruns the cs:layout scope with alternative data. Use alternative-text
+  ## to add an annotation providing details of the source of a reprint or
+  ## translation.
+  element cs:text {
+    affixes
+  }?
+}
