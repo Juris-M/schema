@@ -876,3 +876,9 @@ div {
     affixes
   }?
 }
+
+div {
+   attribute exclude-types { item-types }
+   attribute exclude-with-fields { variables }
+   bibliography.options |= exclude-types | exclude-with-fields
+}
