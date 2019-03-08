@@ -210,6 +210,7 @@ rendering-element.date =
   rendering-element.names =
     element cs:names {
       names.attributes,
+      attribute require-match { xsd:boolean }?,
       (names.label-before?,
        names.name?,
        names.et-al?,
@@ -878,7 +879,8 @@ div {
 }
 
 div {
-   attribute exclude-types { item-types }
-   attribute exclude-with-fields { variables }
-   bibliography.options |= exclude-types | exclude-with-fields
+   exclude.types = attribute exclude-types { list { item-types+ } }
+   exclude.fields = attribute exclude-with-fields { list { variables+ } }
+   bibliography.options |= exclude.types, exclude.fields
 }
+
