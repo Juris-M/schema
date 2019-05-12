@@ -837,7 +837,7 @@ div {
   variables.dates |= "available-date" | "locator-date" | "publication-date" | "alt-issued"
   
   ## Add number variables
-  variables.numbers |= "call-number" | "page" | "page-first" | "supplement" | "publication-number" | "locator-extra"
+  variables.numbers |= "call-number" | "page" | "page-first" | "supplement" | "division" | "locator-extra"
 
 
   ## Add string variables
