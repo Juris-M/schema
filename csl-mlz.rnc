@@ -881,6 +881,13 @@ div {
 div {
    exclude.types = attribute exclude-types { list { item-types+ } }
    exclude.fields = attribute exclude-with-fields { list { variables+ } }
-   bibliography.options |= exclude.types, exclude.fields
+   bibliography.options |= bibliography.hanging-indent,
+    bibliography.line-formatting-options,
+    bibliography.second-field-align,
+    bibliography.subsequent-author-substitute-options,
+    names-inheritable-options,
+    name-inheritable-options,
+    exclude.types?,
+    exclude.fields?
 }
 
