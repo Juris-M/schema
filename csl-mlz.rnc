@@ -41,9 +41,6 @@ include "csl-repository.rnc" {
       attribute name-as-sort-order { list { xsd:language+ } }?,
 
       ## Resets 
-      attribute name-as-reverse-order { list { xsd:language+ } }?,
-
-      ## Resets 
       attribute name-never-short { list { xsd:language+ } }?,
 
       ## Resets
@@ -202,9 +199,6 @@ rendering-element.date =
   choose.if = ( if-simple | if-complex )
   choose.else-if = ( else-if-simple | else-if-complex )
 
-  ## add nand term
-  match = attribute match { "all" | "any" | "none" | "nand" }?
-
   ## Allow cs:institution element as child element of cs:names, add
   ## name-label-before, name-label-after
   rendering-element.names =
@@ -257,11 +251,7 @@ rendering-element.date =
        ## Form of the variable
        [ a:defaultValue = "long" ] attribute form { "short" | "long" }?,
        ## What to do with leading noise words
-       attribute leading-noise-words { "drop" | "demote" }?,
-       ## Chop jurisdiction code underlying rendered human-readable
-       ## form to this length (meaningful only with jurisdiction
-       ## variable)
-       attribute jurisdiction-depth { xsd:integer }?)
+       attribute leading-noise-words { "drop" | "demote" }?)
        
   ## Allow "locator" variable on, add "label-form" attribute to cs:number
   number.attributes =
@@ -410,7 +400,7 @@ rendering-element.date =
       "contextual" | "always" | "never"
     }?,
     attribute is-parallel {
-      list { (xsd:boolean | "master" | "servant")+ }
+      list { ("first" | "mid" | "last")+ }
     }?,
     attribute reject {
       "comma-safe" | "empty-label" | "empty-label-no-decor"
@@ -424,7 +414,6 @@ rendering-element.date =
     style.initialize-with-hyphen,
     style.page-range-format,
     style.year-range-format,
-    style.default-locale-sort,
     names-inheritable-options,
     name-inheritable-options
   
@@ -517,9 +506,6 @@ rendering-element.date =
       attribute number {
         list { terms.locator+ | "number" }
       }
-    | 
-      ## Tests for the number of subjurisdictions
-      attribute subjurisdictions { xsd:integer }
     |
       ## True if the locale of the item matches the 
       ## locale to be tested. Both are resolved before
@@ -538,10 +524,6 @@ rendering-element.date =
 	    | "radio-broadcast" 
 	    | "television-broadcast"
       }
-    |
-      ## True if unrendered components of the authority
-      ## variable remain
-      attribute authority-residue { "true" | "false" }
 
   affixes =
     [ a:defaultValue = "" ]
@@ -783,10 +765,6 @@ style.year-range-format =
     "expanded" | "minimal" | "minimal-two" | "chicago"
   }?
 
-## Set locale for use in sorting
-style.default-locale-sort =
-  attribute default-locale-sort { xsd:language }?
-
 ## Strings for use in affixes
 string-no-leading-space = xsd:string { pattern = "([^ ].*)*" }
 string-no-trailing-space = xsd:string { pattern = "(.*[^ ])*" }
@@ -803,9 +781,6 @@ affixes-trailing-name-label =
 
 ## Modifications to contents csl-terms.rnc
 div {
-  
-  ## Add miscellaneous terms
-  terms |= "unpublished"
   
   ## Add locator terms
   terms.locator.testable |= "Chapter" | "Section" | "article" | "rule" | "title" | "number"
@@ -831,7 +806,7 @@ div {
 div {
   
   ## Add name variables
-  variables.names |= "authority" | "director" | "commenter" | "committee" | "contributor" | "dummy" | "alt-translator"
+  variables.names |= "authority" | "director" | "commenter" | "committee" | "contributor" | "alt-translator"
   
   ## Add date variables
   variables.dates |= "available-date" | "locator-date" | "publication-date" | "alt-issued"
@@ -880,14 +855,11 @@ div {
 
 div {
    exclude.types = attribute exclude-types { list { item-types+ } }
-   exclude.fields = attribute exclude-with-fields { list { variables+ } }
    bibliography.options |= bibliography.hanging-indent,
     bibliography.line-formatting-options,
     bibliography.second-field-align,
     bibliography.subsequent-author-substitute-options,
     names-inheritable-options,
     name-inheritable-options,
-    exclude.types?,
-    exclude.fields?
+    exclude.types?
 }
-
