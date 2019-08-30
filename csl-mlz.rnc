@@ -400,7 +400,13 @@ rendering-element.date =
       "contextual" | "always" | "never"
     }?,
     attribute is-parallel {
-      list { ("first" | "mid" | "last")+ }
+      { ("first" | "mid" | "last")+ }
+    }?,
+    attribute no-repeat {
+      list { variables }
+    }?,
+    attribute changes-in {
+      list { variables }
     }?,
     attribute reject {
       "comma-safe" | "empty-label" | "empty-label-no-decor"
