@@ -408,6 +408,9 @@ rendering-element.date =
     attribute changes-in {
       list { variables }
     }?,
+    attribute layout-delimiter-override {
+      xsd:string
+    }?,
     attribute reject {
       "comma-safe" | "empty-label" | "empty-label-no-decor"
     }?,
