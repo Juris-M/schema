@@ -815,7 +815,7 @@ div {
 div {
   
   ## Add name variables
-  variables.names |= "authority" | "director" | "commenter" | "committee" | "contributor" | "alt-translator"
+  variables.names |= "authority" | "director" | "commenter" | "committee" | "contributor" | "alt-translator" | "dummy"
   
   ## Add date variables
   variables.dates |= "available-date" | "locator-date" | "publication-date" | "alt-issued"
