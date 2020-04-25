@@ -399,14 +399,14 @@ rendering-element.date =
     attribute subgroup-delimiter-precedes-last {
       "contextual" | "always" | "never"
     }?,
-    attribute is-parallel {
-      "first" | "mid" | "last"
-    }?,
-    attribute no-repeat {
+    attribute parallel-first {
       list { variables }
     }?,
-    attribute changes-in {
+    attribute parallel-last {
       list { variables }
+    }?,
+    attribute parallel-delimiter-override {
+      xsd:string
     }?,
     attribute layout-delimiter-override {
       xsd:string
