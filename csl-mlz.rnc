@@ -825,7 +825,7 @@ div {
 
 
   ## Add string variables
-  variables.strings |= "gazette-flag" | "document-name" | "language-name" | "language-name-original" | "alt-title" | "alt-container-title"
+  variables.strings |= "gazette-flag" | "admin-flag" | "document-name" | "language-name" | "language-name-original" | "alt-title" | "alt-container-title"
 }
 
 ## For complex conditions
