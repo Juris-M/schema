@@ -423,7 +423,7 @@ rendering-element.date =
     style.initialize-with-hyphen,
     style.page-range-format,
     style.year-range-format,
-    style.require-comma-on-symbol-after-number,
+    style.require-comma-on-symbol,
     names-inheritable-options,
     name-inheritable-options
   
@@ -775,8 +775,8 @@ style.year-range-format =
     "expanded" | "minimal" | "minimal-two" | "chicago"
   }?
 
-style.require-comma-on-symbol-after-number =
-  attribute require-comma-on-symbol-after-number {
+style.require-comma-on-symbol =
+  attribute require-comma-on-symbol {
     "neveer" | "always" | "after-number"
   }?
 
