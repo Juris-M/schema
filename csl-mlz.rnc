@@ -44,10 +44,7 @@ include "csl-repository.rnc" {
       attribute name-never-short { list { xsd:language+ } }?,
 
       ## Resets
-      attribute jurisdiction-preference { text }?,
-
-      ## Behavior of comma-safe require/reject
-      attribute require-comma-on-symbol-after-number { xsd:boolean }?
+      attribute jurisdiction-preference { text }?
     }
   
   ## Replace affixes by affixes-date on cs:date-part
@@ -426,6 +423,7 @@ rendering-element.date =
     style.initialize-with-hyphen,
     style.page-range-format,
     style.year-range-format,
+    style.require-comma-on-symbol-after-number,
     names-inheritable-options,
     name-inheritable-options
   
@@ -775,6 +773,11 @@ institution-attributes =
 style.year-range-format =
   attribute year-range-format {
     "expanded" | "minimal" | "minimal-two" | "chicago"
+  }?
+
+style.require-comma-on-symbol-after-number =
+  attribute require-comma-on-symbol-after-number {
+    "neveer" | "always" | "after-number"
   }?
 
 ## Strings for use in affixes
