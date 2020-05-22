@@ -44,7 +44,10 @@ include "csl-repository.rnc" {
       attribute name-never-short { list { xsd:language+ } }?,
 
       ## Resets
-      attribute jurisdiction-preference { text }?
+      attribute jurisdiction-preference { text }?,
+
+      ## Behavior of comma-safe require/reject
+      attribute require-comma-on-symbol-after-number { xsd:boolean }?
     }
   
   ## Replace affixes by affixes-date on cs:date-part
