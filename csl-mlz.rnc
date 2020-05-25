@@ -799,7 +799,11 @@ div {
   
   ## Add locator terms
   terms.locator.testable |= "Chapter" | "Section" | "article" | "rule" | "title" | "number"
-  
+      | "illustration" | "introduction" | "preamble" | "principle" | "publication" | "schedule"
+      | "series," | "subdivision" | "subsection" | "supplement" | "table" | "title"
+      | "subparagraph" | "amendment" | "annotation" | "appendix" | "bibliography" | "clause"
+      | "comment" | "decision" | "department" | "division" | "example" | "hypothetical"
+
   ## Add non-locator terms accompanying number variables
   terms.non-locator-number-variables |=
     "supplement"
