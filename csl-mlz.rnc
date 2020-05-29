@@ -265,7 +265,11 @@ rendering-element.date =
     }?,
     attribute label-form { term.form }?,
     [ a:defaultValue = "false" ] attribute label-capitalize-if-first { xsd:boolean }?,
-    attribute gender { "masculine" | "feminine" }?
+    attribute gender { "masculine" | "feminine" }?,
+    ## Render only a substring of the number input. Forces rendering as cs:text,
+    ## numeric attributes will be ignored when this is used.
+    [ a:defaultValue = "false" ]
+    attribute substring { xsd:integer }?
   
   name.attributes =
 
