@@ -410,7 +410,7 @@ rendering-element.date =
       list { variables }
     }?,
     attribute parallel-last-to-first {
-      list { xsd:boolean }
+      list { variables }
     }?,
     attribute parallel-last-override {
       list { variables }
