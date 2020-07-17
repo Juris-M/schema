@@ -404,18 +404,21 @@ rendering-element.date =
       "contextual" | "always" | "never"
     }?,
     attribute parallel-first {
-      list { variables }
+      list { variables+ }
     }?,
     attribute parallel-last {
-      list { variables }
+      list { variables+ }
     }?,
     attribute parallel-last-to-first {
-      list { variables }
+      list { variables+ }
     }?,
     attribute parallel-last-override {
       list { variables }
     }?,
     attribute parallel-delimiter-override {
+      xsd:string
+    }?,
+    attribute parallel-delimiter-override-on-suppress {
       xsd:string
     }?,
     attribute layout-delimiter-override {
