@@ -547,6 +547,11 @@ rendering-element.date =
 	    | "radio-broadcast" 
 	    | "television-broadcast"
       }
+    |
+      ## Court class for Jurism
+      attribute court-class {
+         xsd:string
+      }
 
   affixes =
     [ a:defaultValue = "" ]
