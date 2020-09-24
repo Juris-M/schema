@@ -438,7 +438,10 @@ rendering-element.date =
     style.year-range-format,
     style.require-comma-on-symbol,
     names-inheritable-options,
-    name-inheritable-options
+    name-inheritable-options,
+    attribute disable-duplicate-year-suppression {
+      list { jurisdictions+ }
+    }
   
   ## Add conditions, allow "type" on "variable", limit "position" to one
   ## position
