@@ -441,7 +441,7 @@ rendering-element.date =
     name-inheritable-options,
     attribute disable-duplicate-year-suppression {
       list { jurisdictions+ }
-    }
+    }?
   
   ## Add conditions, allow "type" on "variable", limit "position" to one
   ## position
@@ -554,6 +554,11 @@ rendering-element.date =
       ## Court class for Jurism
       attribute court-class {
          xsd:string
+      }
+    |
+      ## Chapter count for two-stage formatting of chapters in bibliography
+      attribute chapter-count {
+         xsd:integer
       }
 
   affixes =
@@ -901,5 +906,8 @@ div {
     bibliography.subsequent-author-substitute-options,
     names-inheritable-options,
     name-inheritable-options,
-    exclude.types?
+    exclude.types?,
+    attribute consolidate-chapter-items {
+       xsd:boolean
+    }?
 }
