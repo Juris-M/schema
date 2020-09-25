@@ -403,6 +403,9 @@ rendering-element.date =
     attribute subgroup-delimiter-precedes-last {
       "contextual" | "always" | "never"
     }?,
+    attribute no-repeat {
+      list { variables+ }
+    }?,
     attribute parallel-first {
       list { variables+ }
     }?,
