@@ -53,6 +53,13 @@ include "csl-repository.rnc" {
       affixes-date, font-formatting, text-case, (day | month | year)
     }
 
+  locale.court-class =
+    element cs:court-class {
+        attribute name { xsd:string },
+        attribute country { jurisdictions },
+        attribute courts { list { xsd:string } }
+    }
+
 ## Override definition of date to add use-default-locale
 rendering-element.date =
     element cs:date {
@@ -402,6 +409,9 @@ rendering-element.date =
     attribute subgroup-delimiter { text }?,
     attribute subgroup-delimiter-precedes-last {
       "contextual" | "always" | "never"
+    }?,
+    attribute no-repeat {
+      list { variables+ }
     }?,
     attribute parallel-first {
       list { variables+ }
