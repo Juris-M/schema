@@ -626,6 +626,7 @@ rendering-element.date =
     | "event"
     | "event-place"
     | "first-reference-note-number"
+    | "first-container-reference-note-number"
     | "genre"
     | "hereinafter"
     | "ISBN"
