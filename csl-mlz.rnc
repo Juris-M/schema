@@ -53,13 +53,6 @@ include "csl-repository.rnc" {
       affixes-date, font-formatting, text-case, (day | month | year)
     }
 
-  locale.court-class =
-    element cs:court-class {
-        attribute name { xsd:string },
-        attribute country { jurisdictions },
-        attribute courts { list { xsd:string } }
-    }
-
 ## Override definition of date to add use-default-locale
 rendering-element.date =
     element cs:date {
@@ -451,7 +444,10 @@ rendering-element.date =
     name-inheritable-options,
     attribute disable-duplicate-year-suppression {
       list { jurisdictions+ }
-    }?
+    }?,
+    attribute track-container-items { list { item-types+ } }?
+
+
   
   ## Add conditions, allow "type" on "variable", limit "position" to one
   ## position
@@ -567,8 +563,14 @@ rendering-element.date =
       }
     |
       ## Chapter count for two-stage formatting of chapters in bibliography
-      attribute chapter-count {
+      attribute container-item-count {
          xsd:integer
+      }
+    |
+      ## Test for true subsequent of specific item when consolidate-containers
+      ## or track-container-items are in effect.
+      attribute strict-subsequent {
+         xsd:boolean
       }
 
   affixes =
@@ -813,7 +815,7 @@ style.year-range-format =
 
 style.require-comma-on-symbol =
   attribute require-comma-on-symbol {
-    "neveer" | "always" | "after-number"
+    "never" | "always" | "after-number"
   }?
 
 ## Strings for use in affixes
@@ -917,7 +919,15 @@ div {
     names-inheritable-options,
     name-inheritable-options,
     exclude.types?,
-    attribute consolidate-chapter-items {
-       xsd:boolean
-    }?
+    attribute consolidate-containers { list { item-types+ } }?
 }
+
+div {
+  locale.court-class =
+    element cs:court-class {
+        attribute name { xsd:string },
+        attribute country { jurisdictions },
+        attribute courts { list { xsd:string } }
+    }
+}
+
