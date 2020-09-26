@@ -477,6 +477,7 @@ rendering-element.date =
       attribute position {
         list {
           "first"
+          | "container-subsequent"
           | "subsequent"
           | "ibid"
           | "ibid-with-locator"
@@ -565,12 +566,6 @@ rendering-element.date =
       ## Chapter count for two-stage formatting of chapters in bibliography
       attribute container-item-count {
          xsd:integer
-      }
-    |
-      ## Test for true subsequent of specific item when consolidate-containers
-      ## or track-container-items are in effect.
-      attribute strict-subsequent {
-         xsd:boolean
       }
 
   affixes =
