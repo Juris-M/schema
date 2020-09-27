@@ -564,8 +564,13 @@ rendering-element.date =
       }
     |
       ## Chapter count for two-stage formatting of chapters in bibliography
-      attribute container-item-count {
-         xsd:integer
+      attribute container-item-multiple {
+         xsd:boolean
+      }
+    |
+      ## Bibliography position as an item in a tracked container
+      attribute container-item-pos {
+        xsd:boolean
       }
 
   affixes =
