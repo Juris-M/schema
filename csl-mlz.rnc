@@ -569,7 +569,7 @@ rendering-element.date =
       }
     |
       ## Bibliography position as an item in a tracked container
-      attribute container-item-pos {
+      attribute container-subsequent-in-bibliography {
         xsd:boolean
       }
 
