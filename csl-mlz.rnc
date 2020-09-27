@@ -857,7 +857,7 @@ div {
 ## Additional item types (csl-types.rnc)
 div {
   item-types |=
-    "classic" | "gazette" | "regulation" | "treaty" | "standard" | "hearing" | "video"
+    "classic" | "gazette" | "regulation" | "treaty" | "standard" | "hearing" | "video" | "legal_commentary"
 }
 
 ## Additional variables (csl-variables.rnc)
