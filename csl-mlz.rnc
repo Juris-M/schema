@@ -445,7 +445,7 @@ rendering-element.date =
     attribute disable-duplicate-year-suppression {
       list { jurisdictions+ }
     }?,
-    attribute track-container-items { list { item-types+ } }?
+    attribute track-containers { list { item-types+ } }?
 
 
   
@@ -569,7 +569,7 @@ rendering-element.date =
       }
     |
       ## Bibliography position as an item in a tracked container
-      attribute container-subsequent-in-bibliography {
+      attribute container-subsequent {
         xsd:boolean
       }
 
