@@ -564,7 +564,7 @@ rendering-element.date =
       }
     |
       ## Chapter count for two-stage formatting of chapters in bibliography
-      attribute container-item-multiple {
+      attribute container-multiple {
          xsd:boolean
       }
     |
