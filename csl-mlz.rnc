@@ -428,10 +428,10 @@ rendering-element.date =
       xsd:string
     }?,
     attribute reject {
-      "comma-safe" | "empty-label" | "empty-label-no-decor"
+      "comma-safe" | "comma-safe-numbers-only" | "empty-label" | "empty-label-no-decor"
     }?,
     attribute require {
-      "comma-safe" | "empty-label" | "empty-label-no-decor"
+      "comma-safe" | "comma-safe-numbers-only" | "empty-label" | "empty-label-no-decor"
     }?
   
   style.options =
