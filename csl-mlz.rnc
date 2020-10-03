@@ -517,8 +517,14 @@ rendering-element.date =
       }
     | attribute is-plural { variables.names }
     | 
-      ## Tests whether the jurisdiction variable matches the given jurisdictions
+      ## Tests whether the jurisdiction variable matches the given jurisdictions (deprecated,
+      ## as it will validate and match only for exact match to country code)
       attribute jurisdiction {
+        list { jurisdictions+ }
+      }
+    | 
+      ## Tests whether the country variable matches the given country code
+      attribute country {
         list { jurisdictions+ }
       }
     | 
