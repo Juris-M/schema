@@ -120,6 +120,7 @@ div {
     | "page"
     | "paragraph"
     | "part"
+    | "randnummer"
     | "section"
     | "verse"
     | terms.locator-number-variables
