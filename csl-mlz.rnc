@@ -415,9 +415,6 @@ rendering-element.date =
     attribute parallel-last-to-first {
       list { variables+ }
     }?,
-    attribute parallel-last-override {
-      list { variables }
-    }?,
     attribute parallel-delimiter-override {
       xsd:string
     }?,
