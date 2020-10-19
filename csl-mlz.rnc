@@ -176,7 +176,7 @@ rendering-element.date =
     attribute name { "year" },
     
     ## Year forms: "long" ("2005"), "short" ("05").
-    [ a:defaultValue = "long" ] attribute form { "short" | "long" | "imperial" }?,
+    [ a:defaultValue = "long" ] attribute form { "short" | "long" | "numeric" | "numeric-leading-zeros" | "imperial" }?,
     range-delimiter
   
   ## Add support for locale-specific layouts
@@ -684,6 +684,23 @@ rendering-element.date =
     }
 }
 
+## Set court categories as prep for court-class condition
+locale.court-class =
+  element cs:court-class {
+    attribute name { xsd:string },
+    attribute country { jurisdictions },
+    attribute courts { list { xsd:string+ } }
+}
+style.locale |=
+    ## Use to (re)define localized terms, dates and options.
+    element cs:locale {
+      ## Specify the affected locale(s). If "xml:lang" is not set, the
+      ## "cs:locale" element affects all locales.
+      attribute xml:lang { xsd:language }?,
+      (locale.style-options? & locale.date* & locale.terms? & locale.court-class*)
+    }
+
+
 ## Use default locale (for cs:text w/term, cs:label, and cs:date-part)
 use-default-locale = ( [ a:defaultValue = "false" ] attribute default-locale { xsd:boolean }? )
 
@@ -925,13 +942,3 @@ div {
     exclude.types?,
     attribute consolidate-containers { list { item-types+ } }?
 }
-
-div {
-  locale.court-class =
-    element cs:court-class {
-        attribute name { xsd:string },
-        attribute country { jurisdictions },
-        attribute courts { list { xsd:string } }
-    }
-}
-
