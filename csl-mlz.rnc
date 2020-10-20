@@ -575,6 +575,11 @@ rendering-element.date =
       attribute container-subsequent {
         xsd:boolean
       }
+    |
+      ## Has multiple subunits separated by |
+      attribute has-subunit {
+        list { variables+ }
+      }
 
   affixes =
     [ a:defaultValue = "" ]
@@ -715,6 +720,7 @@ info.law-module =
           | "report" 
           | "regulation" 
           | "hearing"
+          | "locator"
         )+
       }
    }
