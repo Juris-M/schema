@@ -580,6 +580,11 @@ rendering-element.date =
       attribute has-subunit {
         list { variables+ }
       }
+    |
+      ## Matches value of cite-form supplied by Abbrevs Filter
+      attribute cite-form {
+        xsd:integer
+      }
 
   affixes =
     [ a:defaultValue = "" ]
