@@ -121,6 +121,7 @@ div {
     | "paragraph"
     | "part"
     | "randnummer"
+    | "recital"
     | "section"
     | "verse"
     | terms.locator-number-variables
